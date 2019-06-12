@@ -3,6 +3,7 @@ import FriendsForm from './components/FriendsForm';
 import FriendsList from './components/FriendsList';
 import axios from 'axios';
 
+import { Container } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -44,10 +45,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Friends App</h1>
-        <FriendsForm addFriend={this.addFriend} />
-        <FriendsList friends={this.state.friends} />
+      <div className="App ">
+        <div className="bg-primary">
+          <Container className="p-5">
+            <h1 className="text-light">Lambda Friends</h1>
+            <FriendsForm addFriend={this.addFriend} />
+            <FriendsList friends={this.state.friends} />
+          </Container>
+        </div>
       </div>
     );
   }

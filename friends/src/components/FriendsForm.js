@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+  Form,
+  FormGroup,
+  FormLabel,
+  FormControl,
+  Button
+} from 'react-bootstrap';
 
 class FriendsForm extends Component {
   constructor() {
@@ -36,10 +43,13 @@ class FriendsForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={() => this.addFriend}>
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
+        <Form
+          onSubmit={() => this.addFriend}
+          className="my-5 p-5 bg-light border border-primary rounded"
+        >
+          <FormGroup>
+            <FormLabel htmlFor="name">Name</FormLabel>
+            <FormControl
               type="text"
               id="name"
               placeholder="Name"
@@ -47,10 +57,10 @@ class FriendsForm extends Component {
               value={this.state.friend.name}
               name="name"
             />
-          </div>
-          <div>
-            <label htmlFor="age">Age</label>
-            <input
+          </FormGroup>
+          <FormGroup>
+            <FormLabel htmlFor="age">Age</FormLabel>
+            <FormControl
               type="number"
               id="age"
               placeholder="Age"
@@ -58,10 +68,10 @@ class FriendsForm extends Component {
               value={this.state.friend.age}
               name="age"
             />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
+          </FormGroup>
+          <FormGroup>
+            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormControl
               type="email"
               id="email"
               placeholder="Email"
@@ -69,10 +79,12 @@ class FriendsForm extends Component {
               value={this.state.friend.email}
               name="email"
             />
-          </div>
+          </FormGroup>
 
-          <button type="submit">Add Friend</button>
-        </form>
+          <Button variant="outline-primary" type="submit">
+            Add Friend
+          </Button>
+        </Form>
       </div>
     );
   }
