@@ -62,6 +62,17 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  deleteFriend = (e, friend) => {
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:5000/friends/${friend.id}`)
+      .then(res => {
+        console.log(res);
+        this.setState({ friends: res.data });
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App ">
@@ -83,6 +94,7 @@ class App extends Component {
                   {...props}
                   friends={this.state.friends}
                   setUpdateForm={this.setUpdateForm}
+                  deleteFriend={this.deleteFriend}
                 />
               )}
             />

@@ -9,6 +9,7 @@ const FriendsList = props => {
           friend={friend}
           key={friend.id}
           setUpdateForm={props.setUpdateForm}
+          deleteFriend={props.deleteFriend}
         />
       ))}
     </div>
