@@ -28,23 +28,23 @@ class FriendsForm extends Component {
     });
   };
 
-  // addFriend = event => {
-  //   event.preventDefault();
-  //   this.props.addFriend(this.state.friend);
-  //   this.setState({
-  //     friend: {
-  //       name: '',
-  //       age: null,
-  //       email: ''
-  //     }
-  //   });
-  // };
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.addFriend(this.state.friend);
+    this.setState({
+      friend: {
+        name: '',
+        age: '',
+        email: ''
+      }
+    });
+  };
 
   render() {
     return (
       <div>
         <Form
-          onSubmit={() => this.addFriend}
+          onSubmit={this.handleSubmit}
           className="my-5 p-5 bg-light border border-primary rounded"
         >
           <FormGroup>
@@ -81,9 +81,7 @@ class FriendsForm extends Component {
             />
           </FormGroup>
 
-          <Button variant="outline-primary" type="submit">
-            Add Friend
-          </Button>
+          <button className="btn btn-primary">Add New Friend</button>
         </Form>
       </div>
     );

@@ -30,25 +30,24 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  // addFriend = friend => {
-  //   axios
-  //     .post('http://localhost:5000/friends', {
-  //       ...friend
-  //     })
-  //     .then(res => {
-  //       console.log(res);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+  addFriend = friend => {
+    axios
+      .post('http://localhost:5000/friends', friend)
+      .then(res => {
+        console.log(res);
+        this.setState({ friends: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
       <div className="App ">
-        <div className="bg-primary">
+        <div className="bg-light">
           <Container className="p-5">
-            <h1 className="text-light">Lambda Friends</h1>
+            <h1 className="text-primary">Lambda Friends</h1>
             <FriendsForm addFriend={this.addFriend} />
             <FriendsList friends={this.state.friends} />
           </Container>
