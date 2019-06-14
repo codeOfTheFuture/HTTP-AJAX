@@ -81,7 +81,7 @@ class FriendsForm extends Component {
             />
           </FormGroup>
 
-          <button className="btn btn-primary">Add New Friend</button>
+          <Button type="submit">Add New Friend</Button>
         </Form>
       </div>
     );
